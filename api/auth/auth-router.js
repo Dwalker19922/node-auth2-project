@@ -55,7 +55,6 @@ router.post("/login", checkUsernameExists, (req, res, next) => {
   const dbPassword=req.user.password
   const compare = bcrypt.compareSync(password,dbPassword)
   if(compare===true){
-    console.log("success")
     const token = buildToken(req.user)
     res.json({
       message:`${req.user.username} is back!`,
