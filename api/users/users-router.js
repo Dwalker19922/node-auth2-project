@@ -44,6 +44,7 @@ router.get("/:user_id", restricted, only('admin'), (req, res, next) => { // done
   Users.findById(req.params.user_id)
     .then(user => {
       const [returnUser]=user
+      console.log(returnUser)
       res.json(returnUser);
     })
     .catch(next);
